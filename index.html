@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zoé Poinssot — 3D Artist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background: #f7f4ef;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 520px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .avatar-ring {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d, #6bcff6, #c77dff);
+    padding: 3px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .avatar-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #f7f4ef;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: #1a1a1a;
+    letter-spacing: -1px;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .tagline {
+    font-size: 0.78rem;
+    color: #9e9890;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #b0aa9f;
+    font-weight: 500;
+    margin: 2rem 0 0.75rem;
+    width: 100%;
+    padding: 0 0.25rem;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .links-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 1.2rem;
+    border-radius: 14px;
+    background: #fff;
+    border: 1px solid #ece8e1;
+    text-decoration: none;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,0.07);
+    border-color: #d8d2c8;
+  }
+
+  .icon-wrap {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .icon-wrap.artstation  { background: #e8faf3; color: #0f9e62; }
+  .icon-wrap.linkedin    { background: #e8f2fb; color: #1a6fae; }
+  .icon-wrap.rookies     { background: #fdeeed; color: #d44c40; }
+  .icon-wrap.generaliste { background: #fdf8e8; color: #b08a10; }
+  .icon-wrap.lighting    { background: #eaf6fd; color: #2a9ec7; }
+  .icon-wrap.compositing { background: #f4eefb; color: #9a4ec7; }
+
+  .link-text { flex: 1; }
+  .link-title { font-size: 0.92rem; font-weight: 500; color: #1a1a1a; line-height: 1.2; }
+  .link-sub   { font-size: 0.76rem; color: #b0aa9f; margin-top: 2px; font-weight: 300; }
+
+  .arrow {
+    font-size: 0.9rem;
+    color: #ccc7bc;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  .link-card:hover .arrow { color: #888; transform: translate(3px, -1px); }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: #ece8e1;
+    margin: 1.75rem 0 0;
+  }
+
+  .footer {
+    margin-top: 1.25rem;
+    font-size: 0.7rem;
+    color: #c5bfb5;
+    letter-spacing: 1px;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .links-group .link-card:nth-child(1) { animation-delay: 0.05s; }
+  .links-group .link-card:nth-child(2) { animation-delay: 0.10s; }
+  .links-group .link-card:nth-child(3) { animation-delay: 0.15s; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <div class="avatar-ring">
+      <div class="avatar-inner">ZP</div>
+    </div>
+    <h1>Zoé Poinssot</h1>
+    <p class="tagline">3D Artist &amp; Animator</p>
+  </div>
+
+  <!-- SECTION 1 : Réseaux -->
+  <div class="section-label">Retrouvez-moi sur</div>
+  <div class="links-group">
+
+    <!-- Remplace href par ton URL ArtStation -->
+    <a href="https://www.artstation.com/TONPROFIL" class="link-card">
+      <div class="icon-wrap artstation">As</div>
+      <div class="link-text">
+        <div class="link-title">ArtStation</div>
+        <div class="link-sub">Portfolio &amp; projets 3D</div>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+    <!-- Remplace href par ton URL LinkedIn -->
+    <a href="https://www.linkedin.com/in/TONPROFIL" class="link-card">
+      <div class="icon-wrap linkedin">in</div>
+      <div class="link-text">
+        <div class="link-title">LinkedIn</div>
+        <div class="link-sub">Profil professionnel</div>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+    <!-- Remplace href par ton URL The Rookies -->
+    <a href="https://www.therookies.co/u/TONPROFIL" class="link-card">
+      <div class="icon-wrap rookies">R</div>
+      <div class="link-text">
+        <div class="link-title">The Rookies</div>
+        <div class="link-sub">Profil étudiant</div>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+  </div>
+
+  <!-- SECTION 2 : Démo reels -->
+  <div class="section-label">Vous cherchez quelqu'un de...</div>
+  <div class="links-group">
+
+    <!-- Remplace href par le lien de ta démo reel généraliste -->
+    <a href="https://vimeo.com/TONLIEN" class="link-card">
+      <div class="icon-wrap generaliste">✦</div>
+      <div class="link-text">
+        <div class="link-title">Généraliste ?</div>
+        <div class="link-sub">Vue d'ensemble de mes compétences</div>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+    <!-- Remplace href par le lien de ta démo reel Lighting -->
+    <a href="https://vimeo.com/TONLIEN" class="link-card">
+      <div class="icon-wrap lighting">◉</div>
+      <div class="link-text">
+        <div class="link-title">Spécialisé en Rendu &amp; Lighting ?</div>
+        <div class="link-sub">Éclairage, shading &amp; rendu photoréaliste</div>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+    <!-- Remplace href par le lien de ta démo reel Compositing -->
+    <a href="https://vimeo.com/TONLIEN" class="link-card">
+      <div class="icon-wrap compositing">⬡</div>
+      <div class="link-text">
+        <div class="link-title">Spécialisé en Compositing ?</div>
+        <div class="link-sub">Intégration &amp; finition d'images</div>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+
+  </div>
+
+  <div class="divider"></div>
+  <p class="footer">zoé poinssot · 3D artist · 2025</p>
+
+</div>
+
+</body>
+</html>
