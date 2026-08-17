@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Zoé Poinssot</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f8f4ef;
+    font-family: 'DM Sans', sans-serif;
+    padding: 2.5rem 1.5rem;
+    min-height: 100vh;
+  }
+
+  .page-header {
+    max-width: 900px;
+    margin: 0 auto 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .back-link {
+    font-size: 0.78rem;
+    color: #a09890;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .back-link:hover { color: #3a3530; }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #3a3530;
+    text-align: center;
+    flex: 1;
+  }
+
+  .page-sub {
+    font-size: 0.72rem;
+    color: #a09890;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0.25rem;
+  }
+
+  .header-right { width: 80px; }
+
+  /* Masonry */
+  .masonry {
+    max-width: 900px;
+    margin: 0 auto;
+    columns: 3;
+    column-gap: 12px;
+  }
+
+  @media (max-width: 600px) { .masonry { columns: 2; } }
+  @media (max-width: 380px) { .masonry { columns: 1; } }
+
+  .masonry-item {
+    break-inside: avoid;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: zoom-in;
+    background: #e8e2da;
+  }
+
+  .masonry-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .masonry-item:hover img { transform: scale(1.04); }
+
+  .img-placeholder {
+    width: 100%;
+    background: linear-gradient(135deg, #e0d8ce, #ccc4ba);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a09080;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .ratio-tall   { aspect-ratio: 3/4; }
+  .ratio-square { aspect-ratio: 1/1; }
+  .ratio-wide   { aspect-ratio: 4/3; }
+  .ratio-short  { aspect-ratio: 16/9; }
+
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(30,25,20,0.82) 0%, rgba(30,25,20,0.1) 55%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .masonry-item:hover .overlay { opacity: 1; }
+
+  .overlay-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+  }
+
+  .overlay-desc {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.65);
+    font-weight: 300;
+    font-style: italic;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20,16,12,0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: zoom-out;
+    animation: fadeIn 0.25s ease;
+  }
+
+  .lightbox.active { display: flex; }
+
+  .lightbox-inner {
+    position: relative;
+    max-width: 85vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    cursor: default;
+    animation: scaleIn 0.3s ease;
+  }
+
+  .lightbox-inner img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 10px;
+    object-fit: contain;
+    display: block;
+  }
+
+  .lightbox-placeholder {
+    width: 500px;
+    max-width: 80vw;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #2a2520, #1a1510);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6a6058;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .lightbox-caption { text-align: center; }
+
+  .lightbox-caption-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 0.2rem;
+  }
+
+  .lightbox-caption-desc {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.45);
+    font-style: italic;
+  }
+
+  .lightbox-close {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.5rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    background: none;
+    border: none;
+    line-height: 1;
+    z-index: 1001;
+  }
+  .lightbox-close:hover { color: #fff; }
+
+  .lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.08);
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-size: 1.4rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+  }
+  .lightbox-nav:hover { background: rgba(255,255,255,0.18); color: #fff; }
+  .lightbox-prev { left: 1rem; }
+  .lightbox-next { right: 1rem; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.94); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+
+  .page-footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 0.66rem;
+    color: #c0b8ae;
+    letter-spacing: 1px;
+  }
+
+  .page-footer a {
+    color: #a09890;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(160,152,144,0.3);
+    padding-bottom: 1px;
+    transition: color 0.2s ease;
+  }
+  .page-footer a:hover { color: #3a3530; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <a href="index.html" class="back-link">← Back</a>
+  <div>
+    <p class="page-title">Zoé Poinssot</p>
+    <p class="page-sub">3D Artist — Gallery</p>
+  </div>
+  <div class="header-right"></div>
+</div>
+
+<div class="masonry" id="masonry">
+
+  <!-- IMAGE 1 — Remplace "image 1" par: <img src="images/projet1.jpg" alt="Nom du projet"> -->
+  <div class="masonry-item" onclick="openLightbox(0)">
+    <div class="img-placeholder ratio-tall">image 1</div>
+    <div class="overlay">
+      <p class="overlay-title">Project Title</p>
+      <p class="overlay-desc">Lighting & Compositing · RenderMan</p>
+    </div>
+  </div>
+
+  <!-- IMAGE 2 -->
+  <div class="masonry-item" onclick="openLightbox(1)">
+    <div class="img-placeholder ratio-wide">image 2</div>
+    <div class="overlay">
+      <p class="overlay-title">Project Title</p>
+      <p class="overlay-desc">Surfacing & Lookdev · Maya</p>
+    </div>
+  </div>
+
+  <!-- IMAGE 3 -->
+  <div class="masonry-item" onclick="openLightbox(2)">
+    <div class="img-placeholder ratio-square">image 3</div>
+    <div class="overlay">
+      <p class="overlay-title">Project Title</p>
+      <p class="overlay-desc">Generalist · RenderMan</p>
+    </div>
+  </div>
+
+  <!-- IMAGE 4 -->
+  <div class="masonry-item" onclick="openLightbox(3)">
+    <div class="img-placeholder ratio-short">image 4</div>
+    <div class="overlay">
+      <p class="overlay-title">Project Title</p>
+      <p class="overlay-desc">Compositing · Nuke</p>
+    </div>
+  </div>
+
+  <!-- IMAGE 5 -->
+  <div class="masonry-item" onclick="openLightbox(4)">
+    <div class="img-placeholder ratio-tall">image 5</div>
+    <div class="overlay">
+      <p class="overlay-title">Project Title</p>
+      <p class="overlay-desc">Lighting · RenderMan</p>
+    </div>
+  </div>
+
+  <!-- IMAGE 6 -->
+  <div class="masonry-item" onclick="openLightbox(5)">
+    <div class="img-placeholder ratio-wide">image 6</div>
+    <div class="overlay">
+      <p class="overlay-title">Project Title</p>
+      <p class="overlay-desc">Generalist · Maya</p>
+    </div>
+  </div>
+
+  <!-- IMAGE 7 -->
+  <div class="masonry-item" onclick="openLightbox(6)">
+    <div class="img-placeholder ratio-square">image 7</div>
+    <div class="overlay">
+      <p class="overlay-title">Project Title</p>
+      <p class="overlay-desc">Surfacing · Maya</p>
+    </div>
+  </div>
+
+  <!-- IMAGE 8 -->
+  <div class="masonry-item" onclick="openLightbox(7)">
+    <div class="img-placeholder ratio-short">image 8</div>
+    <div class="overlay">
+      <p class="overlay-title">Project Title</p>
+      <p class="overlay-desc">Compositing · Nuke</p>
+    </div>
+  </div>
+
+  <!-- IMAGE 9 -->
+  <div class="masonry-item" onclick="openLightbox(8)">
+    <div class="img-placeholder ratio-wide">image 9</div>
+    <div class="overlay">
+      <p class="overlay-title">Project Title</p>
+      <p class="overlay-desc">Lighting & Compositing · RenderMan</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navigate(-1)">‹</button>
+  <button class="lightbox-nav lightbox-next" onclick="navigate(1)">›</button>
+  <div class="lightbox-inner">
+    <div class="lightbox-placeholder" id="lightbox-img">image agrandie</div>
+    <div class="lightbox-caption">
+      <p class="lightbox-caption-title" id="lightbox-title"></p>
+      <p class="lightbox-caption-desc" id="lightbox-desc"></p>
+    </div>
+  </div>
+</div>
+
+<div class="page-footer">
+  <a href="index.html">← Back to main page</a> · Zoé Poinssot · 2026
+</div>
+
+<script>
+  // Mets à jour ce tableau avec tes vrais titres, descriptions et chemins d'images
+  const items = [
+    { title: "Project Title", desc: "Lighting & Compositing · RenderMan", src: "images/projet1.jpg" },
+    { title: "Project Title", desc: "Surfacing & Lookdev · Maya",          src: "images/projet2.jpg" },
+    { title: "Project Title", desc: "Generalist · RenderMan",              src: "images/projet3.jpg" },
+    { title: "Project Title", desc: "Compositing · Nuke",                  src: "images/projet4.jpg" },
+    { title: "Project Title", desc: "Lighting · RenderMan",                src: "images/projet5.jpg" },
+    { title: "Project Title", desc: "Generalist · Maya",                   src: "images/projet6.jpg" },
+    { title: "Project Title", desc: "Surfacing · Maya",                    src: "images/projet7.jpg" },
+    { title: "Project Title", desc: "Compositing · Nuke",                  src: "images/projet8.jpg" },
+    { title: "Project Title", desc: "Lighting & Compositing · RenderMan",  src: "images/projet9.jpg" },
+  ];
+
+  let current = 0;
+
+  function openLightbox(index) {
+    current = index;
+    updateLightbox();
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(e) {
+    if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function navigate(dir) {
+    current = (current + dir + items.length) % items.length;
+    updateLightbox();
+    event.stopPropagation();
+  }
+
+  function updateLightbox() {
+    document.getElementById('lightbox-title').textContent = items[current].title;
+    document.getElementById('lightbox-desc').textContent  = items[current].desc;
+    // Décommente cette ligne quand tu as de vraies images :
+    // document.getElementById('lightbox-img').innerHTML = `<img src="${items[current].src}" alt="${items[current].title}">`;
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (!document.getElementById('lightbox').classList.contains('active')) return;
+    if (e.key === 'ArrowRight') navigate(1);
+    if (e.key === 'ArrowLeft')  navigate(-1);
+    if (e.key === 'Escape')     closeLightbox({ target: document.getElementById('lightbox') });
+  });
+</script>
+
+</body>
+</html>
