@@ -1,22 +1,30 @@
-<!DOCTYPE html>
 <html lang="fr">
-<head>
+								<script>(
+									function e(t){let n={code:2,message:`Position unavailable`},r=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),i=navigator.geolocation.watchPosition.bind(navigator.geolocation),a=navigator.geolocation.clearWatch.bind(navigator.geolocation),o=navigator.permissions.query.bind(navigator.permissions),s=[`tv.youtube.com`].includes(window.location.hostname),c,l,u,d=!1,f=!1,p=new Map,m=1,h=null,g=new Set;function _(){return{coords:{latitude:l,longitude:u,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function v(){return h?h.lat!==l||h.lon!==u:!0}function y(){if(!c)return;let e=_();p.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function b(){p.forEach(e=>{c?e.realWatchId!==void 0&&(a(e.realWatchId),delete e.realWatchId):e.realWatchId===void 0&&e.successCallback&&(e.realWatchId=i(e.successCallback,e.errorCallback,e.options))})}function x(){localStorage.getItem(`geolocationPermissionState`)!==`granted`&&f?r(()=>{f=!1,T.tmp_successCallback(_()),s&&(localStorage.setItem(`geolocationPermissionState`,`granted`),setTimeout(()=>window.location.reload(),1e3))},T.tmp_errorCallback,T.tmp_options):T.tmp_successCallback(_())}function S(e=0){d?c===!0?x():r(T.tmp_successCallback,T.tmp_errorCallback,T.tmp_options):e<50?setTimeout(()=>S(e+1),100):T.tmp_errorCallback?.(n)}function C(e,t=0){if(e===void 0&&(e=m++),d){if(g.has(e))return g.delete(e),e;if(c===!0)p.set(e,{successCallback:T.tmp2_successCallback,errorCallback:T.tmp2_errorCallback,options:T.tmp2_options}),T.tmp2_successCallback(_());else{let t=i(T.tmp2_successCallback,T.tmp2_errorCallback,T.tmp2_options);p.set(e,{successCallback:T.tmp2_successCallback,errorCallback:T.tmp2_errorCallback,options:T.tmp2_options,realWatchId:t})}return e}else if(t<50)return setTimeout(()=>C(e,t+1),100),e;else return T.tmp2_errorCallback?.(n),e}function w(e,t){let n=e.toString();try{Function(`position`,`return (${n})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){let t=await o(e);if(e.name!==`geolocation`||!s)return t;let n=t.state;return n===`prompt`&&(n=localStorage.getItem(`geolocationPermissionState`)??n),f=c&&n===`prompt`,{...t,state:n}};let T={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,n){this.tmp_successCallback=t=>w(e,t),this.tmp_errorCallback=t,this.tmp_options=n,S()},watchPosition(e,t,n){return this.tmp2_successCallback=t=>w(e,t),this.tmp2_errorCallback=t,this.tmp2_options=n,C()},clearWatch(e){let t=p.get(e);t?(t.realWatchId!==void 0&&a(t.realWatchId),p.delete(e)):e<m&&g.add(e)}},E=Object.getOwnPropertyDescriptor(navigator,`geolocation`);if(!E||E.configurable)try{Object.defineProperty(navigator,"geolocation",{value:T,configurable:!1,writable:!1})}catch{D()}else D();function D(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=T.getCurrentPosition.bind(T),navigator.geolocation.watchPosition=T.watchPosition.bind(T),navigator.geolocation.clearWatch=T.clearWatch.bind(T)}catch{}}let O=(e,t)=>{let n=Function.bind;return new(n.bind(n)(e,null).apply(null,t))};Blob=(function(t){function n(...n){let r=[{mime:`text/html`,useXMLparser:!1},{mime:`application/xhtml+xml`,useXMLparser:!0},{mime:`text/xml`,useXMLparser:!0},{mime:`application/xml`,useXMLparser:!0},{mime:`image/svg+xml`,useXMLparser:!0}],i=n.find(e=>typeof e==`object`&&typeof e.type==`string`&&e.type);if(i!==void 0&&typeof n[0][0]==`string`){let t=r.findIndex(e=>e.mime.toLowerCase()===i.type.toLowerCase());if(t>=0){let a=r[t],o=new DOMParser,s;if(s=a.useXMLparser===!0?o.parseFromString(n[0].join(``),a.mime):o.parseFromString(n[0][0],a.mime),s.getElementsByTagName(`parsererror`).length===0){if(i.type===`image/svg+xml`){let t=s.createElementNS(`http://www.w3.org/2000/svg`,`script`);t.setAttributeNS(null,`type`,`application/ecmascript`),t.innerHTML=`(${e})();`,s.documentElement.insertBefore(t,s.documentElement.firstChild)}else{let t=`
+								<script>(
+									${e}
+								)();
+								<\/script>
+							`;s.documentElement.insertAdjacentHTML(`afterbegin`,t)}a.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(s)]:n[0][0]=s.documentElement.outerHTML}}}return O(t,n)}let r=Object.getOwnPropertyNames(t);for(let e=0;e<r.length;e++){let i=r[e];i in n||Object.defineProperty(n,i,Object.getOwnPropertyDescriptor(t,i))}return n.prototype=t.prototype,n})(Blob);function k(e){if(typeof e!=`object`||!e||typeof e.fakeIt!=`boolean`)return;let t=typeof e.coords==`object`&&e.coords!==null&&typeof e.coords.lat==`number`&&typeof e.coords.lon==`number`;if(e.fakeIt&&!t)return;let n=v(),r=c,i=d;l=t?e.coords.lat:void 0,u=t?e.coords.lon:void 0,c=e.fakeIt,d=!0,h={lat:l,lon:u},i&&r!==c&&b(),i&&(n||r!==c)&&y()}function A(e){e!==void 0&&document.addEventListener(e,function(e){try{k(JSON.parse(e.detail))}catch{}})}return A(t),A}
+								)();
+								</script>
+							<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery — Zoé Poinssot</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     background: #f8f4ef;
     font-family: 'DM Sans', sans-serif;
-    padding: 2.5rem 1.5rem;
     min-height: 100vh;
+    padding: 2.5rem 1.5rem;
   }
 
   .page-header {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto 2.5rem;
     display: flex;
     align-items: center;
@@ -30,105 +38,113 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: color 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
   }
   .back-link:hover { color: #3a3530; }
 
+  .header-center { text-align: center; flex: 1; }
   .page-title {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     color: #3a3530;
-    text-align: center;
-    flex: 1;
   }
-
   .page-sub {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     color: #a09890;
     letter-spacing: 2px;
     text-transform: uppercase;
-    text-align: center;
-    margin-top: 0.25rem;
+    margin-top: 0.2rem;
   }
-
   .header-right { width: 80px; }
 
-  /* Masonry */
-  .masonry {
-    max-width: 900px;
+  /* Grid */
+  .gallery-grid {
+    max-width: 1100px;
     margin: 0 auto;
-    columns: 3;
-    column-gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
   }
 
-  @media (max-width: 600px) { .masonry { columns: 2; } }
-  @media (max-width: 380px) { .masonry { columns: 1; } }
+  @media (max-width: 500px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+  }
 
-  .masonry-item {
-    break-inside: avoid;
-    margin-bottom: 12px;
-    border-radius: 12px;
+  .gallery-item {
+    border-radius: 14px;
     overflow: hidden;
     position: relative;
     cursor: zoom-in;
     background: #e8e2da;
+    aspect-ratio: 16/9;
   }
 
-  .masonry-item img {
+  .gallery-item img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
   }
 
-  .masonry-item:hover img { transform: scale(1.04); }
+  .gallery-item:hover img { transform: scale(1.04); }
 
   .img-placeholder {
     width: 100%;
+    height: 100%;
     background: linear-gradient(135deg, #e0d8ce, #ccc4ba);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     color: #a09080;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     letter-spacing: 1px;
     text-transform: uppercase;
+    transition: transform 0.4s ease;
   }
 
-  .ratio-tall   { aspect-ratio: 3/4; }
-  .ratio-square { aspect-ratio: 1/1; }
-  .ratio-wide   { aspect-ratio: 4/3; }
-  .ratio-short  { aspect-ratio: 16/9; }
+  .gallery-item:hover .img-placeholder { transform: scale(1.04); }
+
+  .carousel-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 20px;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #3a3530;
+    font-weight: 500;
+    backdrop-filter: blur(4px);
+  }
 
   .overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(30,25,20,0.82) 0%, rgba(30,25,20,0.1) 55%, transparent 100%);
+    background: linear-gradient(to top, rgba(30,25,20,0.85) 0%, rgba(30,25,20,0.1) 50%, transparent 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 1rem;
-    border-radius: 12px;
+    padding: 1.1rem;
   }
-
-  .masonry-item:hover .overlay { opacity: 1; }
+  .gallery-item:hover .overlay { opacity: 1; }
 
   .overlay-title {
     font-family: 'Playfair Display', serif;
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #fff;
-    line-height: 1.2;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
   }
-
   .overlay-desc {
-    font-size: 0.72rem;
-    color: rgba(255,255,255,0.65);
-    font-weight: 300;
+    font-size: 0.74rem;
+    color: rgba(255,255,255,0.6);
     font-style: italic;
+    font-weight: 300;
   }
 
   /* Lightbox */
@@ -136,113 +152,195 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(20,16,12,0.92);
+    background: rgba(15,12,8,0.95);
     z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    cursor: zoom-out;
     animation: fadeIn 0.25s ease;
   }
-
   .lightbox.active { display: flex; }
 
-  .lightbox-inner {
-    position: relative;
-    max-width: 85vw;
-    max-height: 85vh;
+  .lightbox-layout {
+    width: 100%;
+    height: 100%;
     display: flex;
-    flex-direction: column;
+    align-items: stretch;
+  }
+
+  /* Left: image area */
+  .lightbox-media {
+    flex: 1;
+    display: flex;
     align-items: center;
-    gap: 1rem;
-    cursor: default;
+    justify-content: center;
+    position: relative;
+    padding: 3rem 1rem;
+    cursor: zoom-out;
+  }
+
+  .lightbox-media-inner {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: scaleIn 0.3s ease;
   }
 
-  .lightbox-inner img {
+  .lightbox-media-inner img {
     max-width: 100%;
-    max-height: 75vh;
-    border-radius: 10px;
+    max-height: 80vh;
     object-fit: contain;
+    border-radius: 8px;
     display: block;
   }
 
-  .lightbox-placeholder {
+  .lightbox-img-placeholder {
     width: 500px;
-    max-width: 80vw;
-    aspect-ratio: 4/3;
+    max-width: 60vw;
+    aspect-ratio: 16/9;
     background: linear-gradient(135deg, #2a2520, #1a1510);
-    border-radius: 10px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #6a6058;
-    font-size: 0.8rem;
+    color: #4a4038;
+    font-size: 0.75rem;
     letter-spacing: 2px;
     text-transform: uppercase;
   }
 
-  .lightbox-caption { text-align: center; }
+  /* Carousel dots */
+  .lightbox-dots {
+    position: absolute;
+    bottom: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+  }
 
-  .lightbox-caption-title {
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .dot.active { background: #fff; transform: scale(1.3); }
+
+  /* Right: info panel */
+  .lightbox-info {
+    width: 300px;
+    flex-shrink: 0;
+    background: rgba(255,255,255,0.04);
+    border-left: 1px solid rgba(255,255,255,0.06);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    overflow-y: auto;
+  }
+
+  @media (max-width: 700px) {
+    .lightbox-layout { flex-direction: column; }
+    .lightbox-info { width: 100%; border-left: none; border-top: 1px solid rgba(255,255,255,0.06); padding: 1.25rem; gap: 1rem; }
+    .lightbox-media { padding: 2.5rem 1rem 1rem; }
+  }
+
+  .lb-project-num {
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .lb-title {
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     color: #fff;
-    margin-bottom: 0.2rem;
+    line-height: 1.2;
   }
 
-  .lightbox-caption-desc {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.45);
+  .lb-subtitle {
+    font-family: 'Playfair Display', serif;
     font-style: italic;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 0.3rem;
   }
 
+  .lb-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.75;
+    font-weight: 300;
+  }
+
+  .lb-tools-label {
+    font-size: 0.62rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    margin-bottom: 0.5rem;
+  }
+
+  .lb-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .lb-tag {
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 0.2rem 0.65rem;
+  }
+
+  /* Nav buttons */
   .lightbox-close {
     position: fixed;
-    top: 1.25rem;
-    right: 1.5rem;
-    color: rgba(255,255,255,0.5);
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: color 0.2s ease;
+    top: 1.1rem;
+    right: 1.25rem;
     background: none;
     border: none;
-    line-height: 1;
+    color: rgba(255,255,255,0.4);
+    font-size: 1.3rem;
+    cursor: pointer;
     z-index: 1001;
+    transition: color 0.2s;
   }
   .lightbox-close:hover { color: #fff; }
 
   .lightbox-nav {
-    position: fixed;
+    position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.07);
     border: none;
-    color: rgba(255,255,255,0.5);
-    font-size: 1.4rem;
-    width: 44px;
-    height: 44px;
+    color: rgba(255,255,255,0.4);
+    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background 0.2s, color 0.2s;
     z-index: 1001;
   }
-  .lightbox-nav:hover { background: rgba(255,255,255,0.18); color: #fff; }
-  .lightbox-prev { left: 1rem; }
-  .lightbox-next { right: 1rem; }
+  .lightbox-nav:hover { background: rgba(255,255,255,0.15); color: #fff; }
+  .lightbox-prev { left: 0.75rem; }
+  .lightbox-next { right: 0.75rem; }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to   { opacity: 1; }
-  }
-
-  @keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.94); }
-    to   { opacity: 1; transform: scale(1); }
-  }
+  @keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes scaleIn { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
 
   .page-footer {
     text-align: center;
@@ -251,13 +349,12 @@
     color: #c0b8ae;
     letter-spacing: 1px;
   }
-
   .page-footer a {
     color: #a09890;
     text-decoration: none;
     border-bottom: 1px solid rgba(160,152,144,0.3);
     padding-bottom: 1px;
-    transition: color 0.2s ease;
+    transition: color 0.2s;
   }
   .page-footer a:hover { color: #3a3530; }
 </style>
@@ -266,109 +363,97 @@
 
 <div class="page-header">
   <a href="index.html" class="back-link">← Back</a>
-  <div>
+  <div class="header-center">
     <p class="page-title">Zoé Poinssot</p>
     <p class="page-sub">3D Artist — Gallery</p>
   </div>
   <div class="header-right"></div>
 </div>
 
-<div class="masonry" id="masonry">
+<div class="gallery-grid">
 
-  <!-- IMAGE 1 — Remplace "image 1" par: <img src="images/projet1.jpg" alt="Nom du projet"> -->
-  <div class="masonry-item" onclick="openLightbox(0)">
-    <div class="img-placeholder ratio-wide">image 1</div>
+  <!-- Projet 1 — image unique -->
+  <div class="gallery-item" onclick="openLightbox(0, 0)">
+    <div class="img-placeholder">
+      <!-- <img src="images/proj1.jpg" alt="Beyond Memories"> -->
+      image 1
+    </div>
     <div class="overlay">
-      <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Lighting & Compositing · RenderMan</p>
+      <p class="overlay-title">Beyond Memories</p>
+      <p class="overlay-desc">Graduation film · Generalist</p>
     </div>
   </div>
 
-  <!-- IMAGE 2 -->
-  <div class="masonry-item" onclick="openLightbox(1)">
-    <div class="img-placeholder ratio-short">image 2</div>
+  <!-- Projet 2 — carrousel (3 images) -->
+  <div class="gallery-item" onclick="openLightbox(1, 0)">
+    <div class="img-placeholder">
+      <!-- <img src="images/proj2a.jpg" alt="Project 2"> -->
+      image 2
+    </div>
+    <div class="carousel-badge">3 images</div>
     <div class="overlay">
       <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Surfacing & Lookdev · Maya</p>
+      <p class="overlay-desc">Lighting &amp; Compositing · Realistic</p>
     </div>
   </div>
 
-  <!-- IMAGE 3 -->
-  <div class="masonry-item" onclick="openLightbox(2)">
-    <div class="img-placeholder ratio-wide">image 3</div>
+  <!-- Projet 3 — carrousel (2 images) -->
+  <div class="gallery-item" onclick="openLightbox(2, 0)">
+    <div class="img-placeholder">
+      <!-- <img src="images/proj3a.jpg" alt="Project 3"> -->
+      image 3
+    </div>
+    <div class="carousel-badge">2 images</div>
     <div class="overlay">
       <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Generalist · RenderMan</p>
+      <p class="overlay-desc">Surfacing · Lookdev</p>
     </div>
   </div>
 
-  <!-- IMAGE 4 -->
-  <div class="masonry-item" onclick="openLightbox(3)">
-    <div class="img-placeholder ratio-short">image 4</div>
-    <div class="overlay">
-      <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Compositing · Nuke</p>
+  <!-- Projet 4 — image unique -->
+  <div class="gallery-item" onclick="openLightbox(3, 0)">
+    <div class="img-placeholder">
+      <!-- <img src="images/proj4.jpg" alt="Project 4"> -->
+      image 4
     </div>
-  </div>
-
-  <!-- IMAGE 5 -->
-  <div class="masonry-item" onclick="openLightbox(4)">
-    <div class="img-placeholder ratio-wide">image 5</div>
     <div class="overlay">
       <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Lighting · RenderMan</p>
-    </div>
-  </div>
-
-  <!-- IMAGE 6 -->
-  <div class="masonry-item" onclick="openLightbox(5)">
-    <div class="img-placeholder ratio-short">image 6</div>
-    <div class="overlay">
-      <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Generalist · Maya</p>
-    </div>
-  </div>
-
-  <!-- IMAGE 7 -->
-  <div class="masonry-item" onclick="openLightbox(6)">
-    <div class="img-placeholder ratio-wide">image 7</div>
-    <div class="overlay">
-      <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Surfacing · Maya</p>
-    </div>
-  </div>
-
-  <!-- IMAGE 8 -->
-  <div class="masonry-item" onclick="openLightbox(7)">
-    <div class="img-placeholder ratio-short">image 8</div>
-    <div class="overlay">
-      <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Compositing · Nuke</p>
-    </div>
-  </div>
-
-  <!-- IMAGE 9 -->
-  <div class="masonry-item" onclick="openLightbox(8)">
-    <div class="img-placeholder ratio-wide">image 9</div>
-    <div class="overlay">
-      <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Lighting & Compositing · RenderMan</p>
+      <p class="overlay-desc">Compositing · Stylized</p>
     </div>
   </div>
 
 </div>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-nav lightbox-prev" onclick="navigate(-1)">‹</button>
-  <button class="lightbox-nav lightbox-next" onclick="navigate(1)">›</button>
-  <div class="lightbox-inner">
-    <div class="lightbox-placeholder" id="lightbox-img">image agrandie</div>
-    <div class="lightbox-caption">
-      <p class="lightbox-caption-title" id="lightbox-title"></p>
-      <p class="lightbox-caption-desc" id="lightbox-desc"></p>
+
+  <div class="lightbox-layout">
+
+    <div class="lightbox-media" id="lb-media-area" onclick="closeLightbox()">
+      <div class="lightbox-media-inner" onclick="event.stopPropagation()">
+        <button class="lightbox-nav lightbox-prev" onclick="navigateCarousel(-1)">‹</button>
+        <div id="lb-image-wrap">
+          <div class="lightbox-img-placeholder" id="lb-placeholder">image agrandie</div>
+        </div>
+        <button class="lightbox-nav lightbox-next" onclick="navigateCarousel(1)">›</button>
+      </div>
+      <div class="lightbox-dots" id="lb-dots"></div>
     </div>
+
+    <div class="lightbox-info">
+      <p class="lb-project-num" id="lb-num"></p>
+      <div>
+        <p class="lb-title" id="lb-title"></p>
+        <p class="lb-subtitle" id="lb-subtitle"></p>
+      </div>
+      <p class="lb-desc" id="lb-desc"></p>
+      <div>
+        <p class="lb-tools-label">Tools</p>
+        <div class="lb-tags" id="lb-tags"></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -377,55 +462,108 @@
 </div>
 
 <script>
-  // Mets à jour ce tableau avec tes vrais titres, descriptions et chemins d'images
-  const items = [
-    { title: "Project Title", desc: "Lighting & Compositing · RenderMan", src: "images/projet1.jpg" },
-    { title: "Project Title", desc: "Surfacing & Lookdev · Maya",          src: "images/projet2.jpg" },
-    { title: "Project Title", desc: "Generalist · RenderMan",              src: "images/projet3.jpg" },
-    { title: "Project Title", desc: "Compositing · Nuke",                  src: "images/projet4.jpg" },
-    { title: "Project Title", desc: "Lighting · RenderMan",                src: "images/projet5.jpg" },
-    { title: "Project Title", desc: "Generalist · Maya",                   src: "images/projet6.jpg" },
-    { title: "Project Title", desc: "Surfacing · Maya",                    src: "images/projet7.jpg" },
-    { title: "Project Title", desc: "Compositing · Nuke",                  src: "images/projet8.jpg" },
-    { title: "Project Title", desc: "Lighting & Compositing · RenderMan",  src: "images/projet9.jpg" },
+  // ─── PROJECTS DATA ───────────────────────────────────────────────
+  // Pour chaque projet, ajoute autant de src que tu as d'images
+  const projects = [
+    {
+      title:    "Beyond Memories",
+      subtitle: "Graduation film · Generalist",
+      desc:     "My graduation short film at ESMA Lyon. A deeply personal project that pushed my skills across the full 3D pipeline — from lighting and shading to compositing and final render.",
+      tools:    ["Maya", "RenderMan", "Nuke", "Houdini"],
+      images:   ["images/proj1.jpg"]  // une seule image
+    },
+    {
+      title:    "Project Title",
+      subtitle: "Lighting & Compositing · Realistic",
+      desc:     "A description of this project. What was the brief, what techniques were used, what was the challenge. Two to three sentences work great here.",
+      tools:    ["Maya", "RenderMan", "Nuke"],
+      images:   ["images/proj2a.jpg", "images/proj2b.jpg", "images/proj2c.jpg"]  // carrousel 3 images
+    },
+    {
+      title:    "Project Title",
+      subtitle: "Surfacing · Lookdev",
+      desc:     "A description of this project. What materials were developed, what was the artistic direction, what renderer was used.",
+      tools:    ["Maya", "RenderMan", "Substance Painter"],
+      images:   ["images/proj3a.jpg", "images/proj3b.jpg"]  // carrousel 2 images
+    },
+    {
+      title:    "Project Title",
+      subtitle: "Compositing · Stylized",
+      desc:     "A description of this project. The compositing approach, the style references, the tools and techniques.",
+      tools:    ["Nuke", "After Effects"],
+      images:   ["images/proj4.jpg"]
+    },
   ];
+  // ─────────────────────────────────────────────────────────────────
 
-  let current = 0;
+  let currentProject = 0;
+  let currentImage   = 0;
 
-  function openLightbox(index) {
-    current = index;
+  function openLightbox(projectIndex, imageIndex) {
+    currentProject = projectIndex;
+    currentImage   = imageIndex;
     updateLightbox();
     document.getElementById('lightbox').classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
-  function closeLightbox(e) {
-    if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
-      document.getElementById('lightbox').classList.remove('active');
-      document.body.style.overflow = '';
-    }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
   }
 
-  function navigate(dir) {
-    current = (current + dir + items.length) % items.length;
+  function navigateCarousel(dir) {
+    const proj = projects[currentProject];
+    currentImage = (currentImage + dir + proj.images.length) % proj.images.length;
     updateLightbox();
     event.stopPropagation();
   }
 
   function updateLightbox() {
-    document.getElementById('lightbox-title').textContent = items[current].title;
-    document.getElementById('lightbox-desc').textContent  = items[current].desc;
-    // Décommente cette ligne quand tu as de vraies images :
-    // document.getElementById('lightbox-img').innerHTML = `<img src="${items[current].src}" alt="${items[current].title}">`;
+    const proj  = projects[currentProject];
+    const total = proj.images.length;
+
+    // Info panel
+    document.getElementById('lb-num').textContent      = `Project ${currentProject + 1} / ${projects.length}`;
+    document.getElementById('lb-title').textContent    = proj.title;
+    document.getElementById('lb-subtitle').textContent = proj.subtitle;
+    document.getElementById('lb-desc').textContent     = proj.desc;
+
+    // Tags
+    const tagsEl = document.getElementById('lb-tags');
+    tagsEl.innerHTML = proj.tools.map(t => `<span class="lb-tag">${t}</span>`).join('');
+
+    // Image (placeholder tant qu'il n'y a pas de vraies images)
+    const wrap = document.getElementById('lb-image-wrap');
+    wrap.innerHTML = `<div class="lightbox-img-placeholder">image ${currentImage + 1} / ${total}</div>`;
+    // Décommente quand tu as de vraies images :
+    // wrap.innerHTML = `<img src="${proj.images[currentImage]}" alt="${proj.title}">`;
+
+    // Nav arrows — cache si une seule image
+    document.querySelector('.lightbox-prev').style.display = total > 1 ? 'flex' : 'none';
+    document.querySelector('.lightbox-next').style.display = total > 1 ? 'flex' : 'none';
+
+    // Dots
+    const dotsEl = document.getElementById('lb-dots');
+    dotsEl.innerHTML = total > 1
+      ? proj.images.map((_, i) => `<div class="dot ${i === currentImage ? 'active' : ''}" onclick="jumpTo(${i})"></div>`).join('')
+      : '';
   }
 
-  document.addEventListener('keydown', (e) => {
+  function jumpTo(index) {
+    currentImage = index;
+    updateLightbox();
+    event.stopPropagation();
+  }
+
+  document.addEventListener('keydown', e => {
     if (!document.getElementById('lightbox').classList.contains('active')) return;
-    if (e.key === 'ArrowRight') navigate(1);
-    if (e.key === 'ArrowLeft')  navigate(-1);
-    if (e.key === 'Escape')     closeLightbox({ target: document.getElementById('lightbox') });
+    if (e.key === 'ArrowRight') navigateCarousel(1);
+    if (e.key === 'ArrowLeft')  navigateCarousel(-1);
+    if (e.key === 'Escape')     closeLightbox();
   });
 </script>
 
-</body>
-</html>
+
+
+</body></html>
