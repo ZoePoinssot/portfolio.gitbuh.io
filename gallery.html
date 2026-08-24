@@ -382,7 +382,7 @@
   <!-- Projet 1 — image unique -->
   <div class="gallery-item" onclick="openLightbox(0, 0)">
     <div class="img-placeholder">
-      <!-- <img src="images/beyondMemories1.png" alt="Beyond Memories"> -->
+      <img src="images/beyondMemories1.png" alt="Beyond Memories">
       image 1
     </div>
 	<div class="carousel-badge">3 images</div>
@@ -599,7 +599,7 @@
     document.getElementById('lb-num').textContent      = `Project ${currentProject + 1} / ${projects.length}`;
     document.getElementById('lb-title').textContent    = proj.title;
     document.getElementById('lb-subtitle').textContent = proj.subtitle;
-    document.getElementById('lb-desc').textContent     = proj.desc;
+    document.getElementById('lb-desc').innerHTML = proj.desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
     // Tags
     const tagsEl = document.getElementById('lb-tags');
