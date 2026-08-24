@@ -387,7 +387,7 @@
     </div>
     <div class="overlay">
       <p class="overlay-title">Beyond Memories</p>
-      <p class="overlay-desc">Graduation film · Generalist</p>
+      <p class="overlay-desc">My graduation short film, built around a unique artistic direction: mosaic</p>
     </div>
   </div>
 
@@ -399,8 +399,8 @@
     </div>
     <div class="carousel-badge">3 images</div>
     <div class="overlay">
-      <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Lighting &amp; Compositing · Realistic</p>
+      <p class="overlay-title">Abandoned Chair</p>
+      <p class="overlay-desc">Creating emotion through light, texture, and atmosphere.</p>
     </div>
   </div>
 
@@ -412,8 +412,8 @@
     </div>
     <div class="carousel-badge">2 images</div>
     <div class="overlay">
-      <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Surfacing · Lookdev</p>
+      <p class="overlay-title">Silly Sylvie</p>
+      <p class="overlay-desc">My first small production!</p>
     </div>
   </div>
 
@@ -424,8 +424,8 @@
       image 4
     </div>
     <div class="overlay">
-      <p class="overlay-title">Project Title</p>
-      <p class="overlay-desc">Compositing · Stylized</p>
+      <p class="overlay-title">Illuminated Building</p>
+      <p class="overlay-desc">Creating the illusion of light</p>
     </div>
   </div>
 
@@ -457,6 +457,7 @@
       <p class="lb-desc" id="lb-desc"></p>
       <div>
         <p class="lb-tools-label">Tools</p>
+		<p class="lb-tools-label">Date</p>
         <div class="lb-tags" id="lb-tags"></div>
       </div>
     </div>
@@ -474,30 +475,38 @@
   const projects = [
     {
       title:    "Beyond Memories",
-      subtitle: "Graduation film · Generalist",
-      desc:     "My graduation short film at ESMA Lyon. A deeply personal project that pushed my skills across the full 3D pipeline — from lighting and shading to compositing and final render.",
-      tools:    ["Maya", "RenderMan", "Nuke", "Houdini"],
-      images:   ["images/proj1.jpg"]  // une seule image
+      subtitle: "My graduation short film, built around a unique artistic direction: mosaic.",
+      desc:     "Beyond Memories is by far one of the most enriching projects I've worked on. Over the course of its production, I had the opportunity to explore every stage of the pipeline, while learning how important communication and collaboration are to bringing a film together.
+I poured most of my energy into **environment concept art, surfacing, lighting, and compositing**, while also developing a visual language where the mosaic becomes a metaphor for fragmented memories. This project pushed me technically and artistically, and taught me how all these departments come together to serve a single emotional story.
+",
+      tools:    ["Maya", "RenderMan", "Substance Painter", "Substance Designer", "Nuke", "Houdini"],
+      date:     "2026"
+	  images:   ["images/proj1.jpg"]  // une seule image
     },
     {
-      title:    "Project Title",
-      subtitle: "Lighting & Compositing · Realistic",
-      desc:     "A description of this project. What was the brief, what techniques were used, what was the challenge. Two to three sentences work great here.",
-      tools:    ["Maya", "RenderMan", "Nuke"],
+      title:    "Abandoned Chair",
+      subtitle: "Creating emotion through light, texture, and atmosphere.",
+      desc:     "For this project, I wanted to create a scene that immediately felt worned out and abandoned. I used it as an opportunity to push my texturing skills, paying close attention to imperfections, wear, and material variation to make the environment feel realistic. Lighting was equally important to me, with a moody atmosphere designed to reinforce the feeling of solitude and abandonment.
+",
+      tools:    ["Maya", "RenderMan", "Substance Painter", "Affinity", "Nuke"],
+	  date:     "2026"
       images:   ["images/proj2a.jpg", "images/proj2b.jpg", "images/proj2c.jpg"]  // carrousel 3 images
     },
     {
-      title:    "Project Title",
-      subtitle: "Surfacing · Lookdev",
-      desc:     "A description of this project. What materials were developed, what was the artistic direction, what renderer was used.",
-      tools:    ["Maya", "RenderMan", "Substance Painter"],
+      title:    "Silly Sylvie",
+      subtitle: "My first small production!",
+      desc:     "This project was the first step to discovering the production pipeline. As production manager, I learned how to organize a team, communicate effectively, and keep a project moving while also contributing creatively. I worked across storyboard, modeling, texturing, rendering and compositing, while also designing the fur and leading the R&D for its animation.
+I'm especially proud that our film was featured on **The Rookies**, it's a lovely recognition of the work we put into it as a team.",
+      tools:    ["Maya", "RenderMan", "Substance Painter", "Nuke", "Houdini"],
+	  date:     "2025"
       images:   ["images/proj3a.jpg", "images/proj3b.jpg"]  // carrousel 2 images
     },
     {
-      title:    "Project Title",
-      subtitle: "Compositing · Stylized",
-      desc:     "A description of this project. The compositing approach, the style references, the tools and techniques.",
-      tools:    ["Nuke", "After Effects"],
+      title:    "Illuminated Building",
+      subtitle: "Creating the illusion of light.",
+      desc:     "I've always been fascinated by the possibilities of VFX and wanted to challenge myself to create the illusion that a building was illuminated. This project taught me a lot about plate cleaning, compositing, and subtle light integration.",
+      tools:    ["Maya", "Renderman", "Nuke"],
+	  date:     "2025"
       images:   ["images/proj4.jpg"]
     },
   ];
