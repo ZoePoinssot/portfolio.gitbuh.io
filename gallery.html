@@ -420,12 +420,45 @@
   <!-- Projet 4 — image unique -->
   <div class="gallery-item" onclick="openLightbox(3, 0)">
     <div class="img-placeholder">
-      <!-- <img src="images/proj4.jpg" alt="Project 4"> -->
+      <!-- <img src="images/illuminatedBuilding.jpg" alt="Project 4"> -->
       image 4
     </div>
     <div class="overlay">
       <p class="overlay-title">Illuminated Building</p>
       <p class="overlay-desc">Creating the illusion of light</p>
+    </div>
+  </div>
+
+	  <div class="gallery-item" onclick="openLightbox(4, 0)">
+    <div class="img-placeholder">
+      <!-- <img src="images/van.jpg" alt="Project 5"> -->
+      image 4
+    </div>
+    <div class="overlay">
+      <p class="overlay-title">Van</p>
+      <p class="overlay-desc">Integrating a 3D object into an image</p>
+    </div>
+  </div>
+
+	  <div class="gallery-item" onclick="openLightbox(5, 0)">
+    <div class="img-placeholder">
+      <!-- <img src="images/stylizedHouse.jpg" alt="Project 6"> -->
+      image 4
+    </div>
+    <div class="overlay">
+      <p class="overlay-title">Stylized House</p>
+      <p class="overlay-desc">Bringing an illustration to life in 3D</p>
+    </div>
+  </div>
+
+	  <div class="gallery-item" onclick="openLightbox(6, 0)">
+    <div class="img-placeholder">
+      <!-- <img src="images/Sentenza.jpg" alt="Project 7"> -->
+      image 4
+    </div>
+    <div class="overlay">
+      <p class="overlay-title">Sentenza</p>
+      <p class="overlay-desc">Bringing a character to life</p>
     </div>
   </div>
 
@@ -475,39 +508,61 @@
   const projects = [
     {
       title:    "Beyond Memories",
-      subtitle: "My graduation short film, built around a unique artistic direction: mosaic.",
-      desc:     "Beyond Memories is by far one of the most enriching projects I've worked on. Over the course of its production, I had the opportunity to explore every stage of the pipeline, while learning how important communication and collaboration are to bringing a film together.
-I poured most of my energy into **environment concept art, surfacing, lighting, and compositing**, while also developing a visual language where the mosaic becomes a metaphor for fragmented memories. This project pushed me technically and artistically, and taught me how all these departments come together to serve a single emotional story.
-",
+      subtitle: "My graduation short film, built around a unique artistic direction: mosaic",
+      desc:     "Beyond Memories is by far one of the most enriching projects I've worked on. Over the course of its production, I had the opportunity to explore every stage of the pipeline, while learning how important communication and collaboration are to bringing a film together. I poured most of my energy into **environment concept art, surfacing, lighting, and compositing**, while also developing a visual language where the mosaic becomes a metaphor for fragmented memories. This project pushed me technically and artistically, and taught me how all these departments come together to serve a single emotional story.",
       tools:    ["Maya", "RenderMan", "Substance Painter", "Substance Designer", "Nuke", "Houdini"],
-      date:     "2026"
-	  images:   ["images/proj1.jpg"]  // une seule image
+      date:     ["2026"],
+	  images:   ["images/BeyondMemories1.jpg"]  // une seule image
     },
     {
       title:    "Abandoned Chair",
-      subtitle: "Creating emotion through light, texture, and atmosphere.",
-      desc:     "For this project, I wanted to create a scene that immediately felt worned out and abandoned. I used it as an opportunity to push my texturing skills, paying close attention to imperfections, wear, and material variation to make the environment feel realistic. Lighting was equally important to me, with a moody atmosphere designed to reinforce the feeling of solitude and abandonment.
-",
+      subtitle: "Creating emotion through light, texture, and atmosphere",
+      desc:     "For this project, I wanted to create a scene that immediately felt worned out and abandoned. I used it as an opportunity to push my texturing skills, paying close attention to imperfections, wear, and material variation to make the environment feel realistic. Lighting was equally important to me, with a moody atmosphere designed to reinforce the feeling of solitude and abandonment.",
       tools:    ["Maya", "RenderMan", "Substance Painter", "Affinity", "Nuke"],
-	  date:     "2026"
-      images:   ["images/proj2a.jpg", "images/proj2b.jpg", "images/proj2c.jpg"]  // carrousel 3 images
+	  date:     ["2026"],
+      images:   ["images/AbandonedChair1.jpg", "images/AbandonedChair2.jpg", "images/AbandonedChair3.jpg"]  // carrousel 3 images
     },
     {
       title:    "Silly Sylvie",
       subtitle: "My first small production!",
-      desc:     "This project was the first step to discovering the production pipeline. As production manager, I learned how to organize a team, communicate effectively, and keep a project moving while also contributing creatively. I worked across storyboard, modeling, texturing, rendering and compositing, while also designing the fur and leading the R&D for its animation.
-I'm especially proud that our film was featured on **The Rookies**, it's a lovely recognition of the work we put into it as a team.",
+      desc:     "This project was the first step to discovering the production pipeline. As production manager, I learned how to organize a team, communicate effectively, and keep a project moving while also contributing creatively. I worked across storyboard, modeling, texturing, rendering and compositing, while also designing the fur and leading the R&D for its animation.I'm especially proud that our film was featured on **The Rookies**, it's a lovely recognition of the work we put into it as a team.",
       tools:    ["Maya", "RenderMan", "Substance Painter", "Nuke", "Houdini"],
-	  date:     "2025"
-      images:   ["images/proj3a.jpg", "images/proj3b.jpg"]  // carrousel 2 images
+	  date:     ["2025"],
+      images:   ["images/SillySylvie1.jpg", "images/SillySylvie2.jpg"]  // carrousel 2 images
     },
     {
       title:    "Illuminated Building",
-      subtitle: "Creating the illusion of light.",
+      subtitle: "Creating the illusion of light",
       desc:     "I've always been fascinated by the possibilities of VFX and wanted to challenge myself to create the illusion that a building was illuminated. This project taught me a lot about plate cleaning, compositing, and subtle light integration.",
       tools:    ["Maya", "Renderman", "Nuke"],
-	  date:     "2025"
-      images:   ["images/proj4.jpg"]
+	  date:     ["2025"],
+      images:   ["images/IlluminatedBuilding.jpg"]
+    },
+	{
+      title:    "Van",
+      subtitle: "Integrating a 3D object into an image",
+      desc:     "For this project, I focused on making a 3D van feel as though it had always been part of the original photo. I had to pay attention to matching the perspective, the lighting, the colors and the treatement of the photo to make it convincing. It was also my opportunity to learn Substance 3D Painter and explore a new way of texturing.",
+      tools:    ["Maya", "Renderman", "Substance Painter", "Nuke"],
+	  date:     ["2025"],
+      images:   ["images/Van.jpg"]
+    },
+		
+	{
+      title:    "Stylized house",
+      subtitle: "Bringing an illustration to life in 3D",
+      desc:     "My goal was to translate a 2D illustration into 3D, from modeling all the way to texturing. This project taught me the importance of carefully observing a reference, from proportions to the painting style. I really enjoyed the process of turning this illustration into a believable 3D object. <br> Concept art by Svitlana Harkush",
+      tools:    ["Maya", "Renderman", "Substance Painter", "Nuke"],
+	  date:     ["2025"],
+      images:   ["images/stylizedHouse.jpg"]
+    },
+
+	{
+      title:    "Sentenza",
+      subtitle: "Bringing a character to life",
+      desc:     "This project challenged me to recreate a stylized character while pushing every aspect of the image towards realism. From learning to sclupt in Blender to realistic skin texturing to grooming in Houdini, each step brought a new challenge and taught me a lot about creating believable materials and details. I also wanted to push myself creatively through dramatic lighting, using strong contrasts to give the character more presence and personality. <br> Concept art by Oscar Jaminez",
+      tools:    ["Maya", "Renderman", "Photoshop", "Blender", "Mari", "Nuke", "Houdini"],
+	  date:     ["2025"],
+      images:   ["images/stylizedHouse.jpg"]
     },
   ];
   // ─────────────────────────────────────────────────────────────────
