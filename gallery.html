@@ -606,8 +606,8 @@
     tagsEl.innerHTML = proj.tools.map(t => `<span class="lb-tag">${t}</span>`).join('');
 
     // Image (placeholder tant qu'il n'y a pas de vraies images)
-    //const wrap = document.getElementById('lb-image-wrap');
-    //wrap.innerHTML = `<div class="lightbox-img-placeholder">image ${currentImage + 1} / ${total}</div>`;
+    const wrap = document.getElementById('lb-image-wrap');
+    wrap.innerHTML = `<div class="lightbox-img-placeholder">image ${currentImage + 1} / ${total}</div>`;
     // Décommente quand tu as de vraies images :
     wrap.innerHTML = `<img src="${proj.images[currentImage]}" alt="${proj.title}">`;
 
