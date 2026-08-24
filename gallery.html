@@ -609,7 +609,7 @@
     const wrap = document.getElementById('lb-image-wrap');
     wrap.innerHTML = `<div class="lightbox-img-placeholder">image ${currentImage + 1} / ${total}</div>`;
     // Décommente quand tu as de vraies images :
-    // wrap.innerHTML = `<img src="${proj.images[currentImage]}" alt="${proj.title}">`;
+    wrap.innerHTML = `<img src="${proj.images[currentImage]}" alt="${proj.title}">`;
 
     // Nav arrows — cache si une seule image
     document.querySelector('.lightbox-prev').style.display = total > 1 ? 'flex' : 'none';
