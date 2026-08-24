@@ -292,6 +292,12 @@
     margin-bottom: 0.5rem;
   }
 
+  .lb-date {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+  }
+
   .lb-tags {
     display: flex;
     flex-wrap: wrap;
@@ -465,9 +471,12 @@
       <p class="lb-desc" id="lb-desc"></p>
       <div>
         <p class="lb-tools-label">Tools</p>
-		<p class="lb-tools-label">Date</p>
         <div class="lb-tags" id="lb-tags"></div>
-      </div>
+	  </div>
+      <div>
+        <p class="lb-tools-label">Date</p>
+        <p class="lb-date" id="lb-date"></p>
+    </div>
     </div>
 
   </div>
@@ -574,6 +583,7 @@
     document.getElementById('lb-title').textContent    = proj.title;
     document.getElementById('lb-subtitle').textContent = proj.subtitle;
     document.getElementById('lb-desc').innerHTML = proj.desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+	document.getElementById('lb-date').textContent = proj.date[0];
 
     // Tags
     const tagsEl = document.getElementById('lb-tags');
