@@ -103,49 +103,6 @@
     display: block;
   }
 
-  /* Fallback message */
-  .pdf-fallback {
-    width: 100%;
-    height: 100%;
-    min-height: 75vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    background: linear-gradient(135deg, #f0ece6, #e8e2da);
-    color: #7a6f66;
-  }
-
-  .pdf-fallback .icon { font-size: 2.5rem; }
-
-  .pdf-fallback p {
-    font-family: 'Playfair Display', serif;
-    font-size: 1rem;
-    color: #3a3530;
-  }
-
-  .pdf-fallback span {
-    font-size: 0.8rem;
-    color: #a09890;
-    font-style: italic;
-  }
-
-  .pdf-fallback a {
-    margin-top: 0.5rem;
-    font-size: 0.78rem;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: #3a3530;
-    text-decoration: none;
-    background: #fff;
-    border: 1px solid rgba(200,188,175,0.5);
-    border-radius: 20px;
-    padding: 0.5rem 1.2rem;
-    transition: box-shadow 0.2s ease;
-  }
-  .pdf-fallback a:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
-
   /* Footer */
   .page-footer {
     text-align: center;
@@ -175,19 +132,32 @@
   <div class="header-right"></div>
 </div>
 
-<!-- PDF intégré -->
-<!-- Remplace cv.pdf par le nom exact de ton fichier uploadé sur GitHub -->
-<div class="pdf-wrap">
-  <iframe src="ZoePoinssot_CV.pdf" title="Zoé Poinssot — Resume">
-    <!-- Fallback si le PDF ne charge pas -->
-    <div class="pdf-fallback">
-      <span class="icon">📄</span>
-      <p>Could not load the PDF.</p>
-      <span>Your browser may not support inline PDFs.</span>
-      <a href="cv.pdf" download>Download CV instead</a>
-    </div>
-  </iframe>
+<!-- Boutons de langue -->
+<div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 1.5rem;">
+  <button onclick="showCV('en')" id="btn-en" style="font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; padding: 0.45rem 1.1rem; border-radius: 20px; border: 1px solid rgba(200,188,175,0.6); background: #3a3530; color: #f8f4ef; cursor: pointer; transition: all 0.2s ease;">
+    English
+  </button>
+  <button onclick="showCV('fr')" id="btn-fr" style="font-family: 'DM Sans', sans-serif; font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; padding: 0.45rem 1.1rem; border-radius: 20px; border: 1px solid rgba(200,188,175,0.6); background: #fff; color: #3a3530; cursor: pointer; transition: all 0.2s ease;">
+    Français
+  </button>
 </div>
+
+<!-- Images CV -->
+<div class="pdf-wrap">
+  <img id="cv-en" src="cv-en.png" alt="Zoé Poinssot CV — English" style="width: 100%; display: block; border-radius: 12px;">
+  <img id="cv-fr" src="cv-fr.png" alt="Zoé Poinssot CV — Français" style="width: 100%; display: none; border-radius: 12px;">
+</div>
+
+<script>
+  function showCV(lang) {
+    document.getElementById('cv-en').style.display = lang === 'en' ? 'block' : 'none';
+    document.getElementById('cv-fr').style.display = lang === 'fr' ? 'block' : 'none';
+    document.getElementById('btn-en').style.background = lang === 'en' ? '#3a3530' : '#fff';
+    document.getElementById('btn-en').style.color = lang === 'en' ? '#f8f4ef' : '#3a3530';
+    document.getElementById('btn-fr').style.background = lang === 'fr' ? '#3a3530' : '#fff';
+    document.getElementById('btn-fr').style.color = lang === 'fr' ? '#f8f4ef' : '#3a3530';
+  }
+</script>
 
 <div class="page-footer">
   <a href="index.html">← Back to main page</a> · Zoé Poinssot · 2026
