@@ -543,7 +543,7 @@
       desc:     "My goal was to translate a 2D illustration into 3D, from modeling all the way to texturing. This project taught me the importance of carefully **observing a reference, from proportions to the painting style**. I really enjoyed the process of turning this illustration into a believable 3D object. <br> Concept art by Svitlana Harkush",
       tools:    ["Maya", "Renderman", "Substance Painter", "Nuke"],
 	  date:     ["2025"],
-      images:   ["images/house01.png"]
+      images:   ["images/house01.png", "images/house02.png"]
     },
 
 	{
@@ -552,7 +552,7 @@
       desc:     "This project challenged me to recreate a stylized character while pushing every aspect of the image towards realism. From **learning to sculpt in Blender to realistic skin texturing to grooming in Houdini**, each step brought a new challenge and taught me a lot about creating believable materials and details. I also wanted to push myself creatively through **dramatic lighting**, using strong contrasts to give the character more presence and personality. <br> Concept art by Oscar Jaminez",
       tools:    ["Maya", "Renderman", "Photoshop", "Blender", "Mari", "Nuke", "Houdini"],
 	  date:     ["2025"],
-      images:   ["images/sentenza01.png", "images/sentenza02.png", "images/sentenza03.png", "images/sentenza04.png", "images/sentenza05.png"]
+      images:   ["images/sentenza01.png", "images/sentenza02.png", "images/sentenza03.png", "images/sentenza04.png", "images/sentenza05.jpg"]
     },
   ];
   // ─────────────────────────────────────────────────────────────────
@@ -600,8 +600,13 @@
 if (current.startsWith('video:')) {
     const videoId = current.split(':')[1];
     wrap.innerHTML = `<iframe width="100%" style="aspect-ratio:16/9; border-radius:8px; border:none;" src="https://www.youtube.com/embed/${videoId}" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
+} else if (current.endsWith('.mp4')) {
+    wrap.innerHTML = `<video width="100%" style="aspect-ratio:16/9; border-radius:8px;" controls>
+        <source src="${current}" type="video/mp4">
+    </video>`;
 } else {
     wrap.innerHTML = `<img src="${current}" alt="${proj.title}">`;
+}
 }
 
     // Nav arrows — cache si une seule image
